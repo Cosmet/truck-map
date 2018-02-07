@@ -41,7 +41,9 @@ class AppContainer extends PureComponent {
 const fill = StyleSheet.absoluteFillObject;
 
 const styles = StyleSheet.create({
-  container: fill,
+  container: {
+    flex: 1,
+  },
   map: fill
 })
 

@@ -11,6 +11,7 @@ import {
 import { connectProps } from '../redux/connect';
 
 import Map from './Map';
+import Nav from './nav'
 
 class App extends PureComponent {
   componentDidMount() {
@@ -22,13 +23,16 @@ class App extends PureComponent {
     return (
       <View style={styles.container}>
         <Map />
+        <Nav />
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: StyleSheet.absoluteFillObject
+  container: {
+    height: '100%',
+  }
 })
 
 export default connectProps('global')(App);
