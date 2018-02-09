@@ -5,14 +5,14 @@ import {
   FILTER_PEOPLE,
 } from '../../constants/actions';
 
-const initial = '';
+const initial = [];
 
-export default function searchReducer(state = initial, action) {
+export default function peopleReducer(state = initial, action) {
   switch (action.type) {
     case FETCH_PEOPLE:
-      return action.query;
+      return action.people;
     case FILTER_PEOPLE:
-      return action.query;
+      return action.people;
     default:
       return state;
   }

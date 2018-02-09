@@ -1,6 +1,7 @@
 'use strict';
 
 import React from 'react';
+import { connectProps } from '../redux/connect';
 
 import {
   StyleSheet,
@@ -17,14 +18,14 @@ import people from '../data/people.json';
 
 
 const Nav = (props) => {
-  const { search } = props;
-
+  const { search, people } = props;
+  console.log('nav', props.actions.filterPeople)
   return (
     <View style={styles.container}>
       <View style={styles.innerContainer}>
         <Menu />
         <TextInput
-          onChangeText={this}
+          onChangeText={props.actions.filterPeople}
           style={styles.search}
           placeholder="Search"
         />
@@ -69,4 +70,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Nav;
+export default connectProps()(Nav);
