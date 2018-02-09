@@ -11,28 +11,29 @@ import {
 import { connectProps } from '../redux/connect';
 
 import Map from './Map';
-import Nav from './nav'
+import Nav from '../components/nav'
 
 class App extends PureComponent {
   componentDidMount() {
-    console.log('Hello From ' + this.props.global.platform);
-    console.log('Some Redux bindActionCreators actions...', this.props.actions);
+
   }
 
   render() {
+    const { search } = this.props;
+
     return (
       <View style={styles.container}>
         <Map />
-        <Nav />
+        <Nav search={search} />
       </View>
     );
   }
 }
 
+const fill = StyleSheet.absoluteFillObject;
+
 const styles = StyleSheet.create({
-  container: {
-    height: '100%',
-  }
+  container: fill,
 })
 
-export default connectProps('global')(App);
+export default connectProps('search', 'global')(App);

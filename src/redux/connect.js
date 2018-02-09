@@ -30,7 +30,7 @@ function mapDispatchToProps(dispatch) {
 
 export function configureStore(initialState = {}) {
   return createStore(rootReducer, initialState, enhancer);
-};
+}
 
 // Not required to use these redux connect abstractions. Plenty of valid reasons not to!
 

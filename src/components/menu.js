@@ -6,24 +6,24 @@ import {
   StyleSheet,
   View,
   Text,
+  Image,
 } from 'react-native';
-
-import { connectProps } from '../redux/connect';
 
 
 const Menu = props => {
 
   return (
     <View>
-      <Text style={styles.menuBtn}>Menu</Text>
+      <Image source={require("../images/truckmap_icon.png")} style={styles.logo}></Image>
     </View>
   )
 };
 
 const styles = StyleSheet.create({
-  menuBtn: {
-    fontSize: 16,
+  logo: {
+    width: 30,
+    height: 30,
   }
 });
 
-export default connectProps('search', 'user')(Menu);
+export default Menu;

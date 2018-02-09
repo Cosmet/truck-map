@@ -7,5 +7,6 @@ import {
 } from '../../constants/actions';
 
 export function userSelect(user) {
-  return (dispatch, getState) => {}
+  return (dispatch, getState) => {
+  }
 }

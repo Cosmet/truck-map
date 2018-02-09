@@ -17,7 +17,6 @@ class AppContainer extends PureComponent {
     super(props);
 
     this.state = {
-      search: props.search,
       user: props.user
     }
   }
@@ -41,9 +40,7 @@ class AppContainer extends PureComponent {
 const fill = StyleSheet.absoluteFillObject;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
+  container: fill,
   map: fill
 })
 
