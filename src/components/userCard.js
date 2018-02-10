@@ -7,6 +7,7 @@ import {
   View,
   Text,
   Image,
+  Button,
 } from 'react-native';
 
 import { connectProps } from '../redux/connect';
@@ -26,6 +27,7 @@ const UserCard = props => {
 
   return (
     <View style={styles.container}>
+      <Text style={styles.exitBtn} onPress={props.actions.clearUserSelect}>X</Text>
       <View style={styles.headerContainer}>
         <Image source={{uri: medium}} style={styles.picture} />
         <Text style={styles.name}>{`${first} ${last}`}</Text>
@@ -73,7 +75,7 @@ const styles = StyleSheet.create({
     maxHeight: 150,
   },
   allInterestsContainer: {
-    marginTop: 7,
+    marginTop: 14,
   },
   interestContainer: {
     marginTop: -7,
@@ -94,6 +96,13 @@ const styles = StyleSheet.create({
     width: 25,
     height: 25,
   },
+  exitBtn: {
+    position: 'absolute',
+    top: 10,
+    left: 10,
+    color: 'rgba(255, 0, 0, 0.4)',
+    fontSize: 16,
+  }
 });
 
-export default UserCard;
+export default connectProps()(UserCard);
