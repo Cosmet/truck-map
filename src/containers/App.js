@@ -20,11 +20,17 @@ class App extends PureComponent {
   }
 
   render() {
+    const { user } = this.props;
+    const userSelected = user.username.length > 0;
+
     return (
       <View style={styles.container}>
         <Map />
         <Nav />
-        {!!this.props.user.username.length && <UserCard user={this.props.user} />}
+        {
+          userSelected &&
+            <UserCard user={user} />
+        }
       </View>
     );
   }

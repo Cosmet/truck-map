@@ -18,13 +18,14 @@ const UserCard = props => {
     email,
     phone,
     interests,
+    geo: { city, countryCode, adm1Name },
     name: { first, last },
     picture: { medium },
   } = props.user;
 
   first = first[0].toUpperCase() + first.slice(1);
   last = last[0].toUpperCase() + last.slice(1);
-
+  console.log(props.user)
   return (
     <View style={styles.container}>
       <Text style={styles.exitBtn} onPress={props.actions.clearUserSelect}>X</Text>
@@ -32,6 +33,7 @@ const UserCard = props => {
         <Image source={{uri: medium}} style={styles.picture} />
         <Text style={styles.name}>{`${first} ${last}`}</Text>
         <Text>{username}</Text>
+        <Text>{`${city}, ${adm1Name} ${countryCode}`}</Text>
         <Text>{phone}</Text>
         <Text>{email}</Text>
       </View>

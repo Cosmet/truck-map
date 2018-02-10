@@ -10,13 +10,14 @@ import {
 
 export function userSelect(user) {
   return (dispatch, getState) => {
-    const selectedUser = Object.assign({}, user, {
-      interests: api.getInterests(user['interest_ids']),
-    });
+    const { geo } = getState().marker.filter(mark => mark.person.username === user.username)[0];
+    const interests = api.getInterests(user['interest_ids']);
+    const selectedUser = Object.assign({}, user, { interests, geo });
+
     dispatch({
       type: USER_SELECT,
       user: selectedUser,
-    })
+    });
   }
 }
 
