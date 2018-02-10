@@ -28,9 +28,7 @@ const initial = {
 export default function userReducer(state = initial, action) {
   switch (action.type) {
     case USER_SELECT:
-      return {
-        //...
-      }
+      return action.user;
   }
 
   return state;

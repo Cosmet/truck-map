@@ -16,6 +16,7 @@
     "react": "*",
     "react-native": "*",
     "react-native-maps": "*",
+    "react-native-vector-icons": "^4.5.0",
     "react-redux": "*",
     "redux": "*",
     "redux-logger": "*",

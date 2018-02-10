@@ -12,6 +12,7 @@ import { connectProps } from '../redux/connect';
 
 import Map from './Map';
 import Nav from './Nav';
+import UserCard from '../components/userCard';
 
 class App extends PureComponent {
   componentDidMount() {
@@ -19,11 +20,11 @@ class App extends PureComponent {
   }
 
   render() {
-
     return (
       <View style={styles.container}>
         <Map />
         <Nav />
+        {!!this.props.user.username.length && <UserCard user={this.props.user} />}
       </View>
     );
   }
@@ -35,4 +36,4 @@ const styles = StyleSheet.create({
   container: fill,
 })
 
-export default connectProps('global')(App);
+export default connectProps('user', 'global')(App);

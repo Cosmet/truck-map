@@ -36,9 +36,9 @@ class AppContainer extends PureComponent {
         <MapView style={styles.map}>
 
           {
-            marker.map(mark => (
+            marker.map((mark, idx) => (
               <Marker
-                key={mark.person.username}
+                key={idx}
                 coordinate={mark.coordinates}
                 title={mark.person.name.first}
                 onPress={() => this.props.actions.userSelect(mark.person)}
