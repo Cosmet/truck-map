@@ -1,5 +1,5 @@
 'use strict';
-import people from '../../data/people.json';
+import api from '../../api';
 
 import {
   FETCH_PEOPLE,
@@ -10,7 +10,7 @@ export function fetchPeople() {
   return (dispatch, getState) => {
     dispatch({
       type: FETCH_PEOPLE,
-      people,
+      people: api.getAllPeople(),
     })
   }
 }
@@ -24,6 +24,7 @@ export function filterPeople(query) {
       })
       return;
     }
+    const people = api.getAllPeople();
 
     query = query.toLowerCase();
     const filteredPeople = people.filter(person => {
@@ -41,7 +42,6 @@ export function filterPeople(query) {
         || email.includes(query)
         || phone.includes(query)
         || cell.includes(query);
-        // phone numbers should be matched with regex, but leaving it as is for now.
     });
 
     dispatch({

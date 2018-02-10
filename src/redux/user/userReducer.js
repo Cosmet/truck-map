@@ -5,8 +5,25 @@ import {
 } from '../../constants/actions';
 
 const initial = {
-  //...
-}
+  gender: '',
+  name: {
+    title: '',
+    first: '',
+    last: '',
+  },
+  email: '',
+  dob: '',
+  registered: '',
+  phone: '',
+  cell: '',
+  picture: {
+    large: '',
+    medium: '',
+    thumbnail: '',
+  },
+  username: '',
+  'interest_ids': []
+};
 
 export default function userReducer(state = initial, action) {
   switch (action.type) {
@@ -15,6 +32,6 @@ export default function userReducer(state = initial, action) {
         //...
       }
   }
-  
+
   return state;
 }

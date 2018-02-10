@@ -8,6 +8,7 @@ const actions = keymirror({
   USER_SELECT: null,
   FETCH_PEOPLE: null,
   FILTER_PEOPLE: null,
+  ADD_MARKER: null,
 })
 
 module.exports = actions;

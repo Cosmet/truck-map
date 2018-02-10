@@ -7,8 +7,10 @@ import {
   View,
   Text,
   Image,
+  TouchableHighlight,
 } from 'react-native';
 
+import { connectProps } from '../redux/connect';
 
 const ListItem = props => {
   let {
@@ -21,17 +23,26 @@ const ListItem = props => {
   last = last[0].toUpperCase() + last.slice(1);
 
   return (
-    <View style={styles.container}>
-      <Image source={{uri: thumbnail}} style={styles.thumbnail} />
-      <View style={styles.innerContainer}>
-        <Text style={styles.name}>{`${first} ${last}`}</Text>
-        <Text>{username}</Text>
+    <TouchableHighlight
+      underlayColor='#f0f0f0'
+      style={styles.highlight}
+      onPress={() => props.actions.addMarker(props.data)}
+    >
+      <View style={styles.container}>
+        <Image source={{ uri: thumbnail }} style={styles.thumbnail} />
+        <View style={styles.innerContainer}>
+          <Text style={styles.name}>{`${first} ${last}`}</Text>
+          <Text>{username}</Text>
+        </View>
       </View>
-    </View>
+    </TouchableHighlight>
   )
 };
 
 const styles = StyleSheet.create({
+  highlight: {
+    borderRadius: 5,
+  },
   container: {
     flex: 1,
     flexDirection: 'row',
@@ -56,4 +67,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default ListItem;
+export default connectProps()(ListItem);

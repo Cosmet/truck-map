@@ -11,20 +11,19 @@ import {
 import { connectProps } from '../redux/connect';
 
 import Map from './Map';
-import Nav from '../components/nav';
+import Nav from './Nav';
 
 class App extends PureComponent {
   componentDidMount() {
-    // this.props.actions.fetchPeople();
+
   }
 
   render() {
-    const { search, people } = this.props;
 
     return (
       <View style={styles.container}>
         <Map />
-        <Nav search={search} people={people} />
+        <Nav />
       </View>
     );
   }
@@ -36,4 +35,4 @@ const styles = StyleSheet.create({
   container: fill,
 })
 
-export default connectProps('people', 'search', 'global')(App);
+export default connectProps('global')(App);

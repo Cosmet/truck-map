@@ -10,7 +10,7 @@ import {
 
 import { connectProps } from '../redux/connect';
 
-import MapView from 'react-native-maps';
+import MapView, { Marker } from 'react-native-maps';
 
 class AppContainer extends PureComponent {
   constructor(props) {
@@ -29,9 +29,24 @@ class AppContainer extends PureComponent {
   }
 
   render() {
+    const { marker } = this.props;
+
     return (
       <View style={styles.container}>
-        <MapView style={styles.map} />
+        <MapView style={styles.map}>
+
+          {
+            marker.map(mark => (
+              <Marker
+                key={mark.person.username}
+                coordinate={mark.coordinates}
+                title={mark.person.name.first}
+                onPress={() => this.props.actions.userSelect(mark.person)}
+              />
+            ))
+          }
+
+        </MapView>
       </View>
     );
   }
@@ -44,4 +59,4 @@ const styles = StyleSheet.create({
   map: fill
 })
 
-export default connectProps('search', 'user')(AppContainer);
+export default connectProps('marker', 'search', 'user')(AppContainer);

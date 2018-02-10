@@ -8,5 +8,9 @@ import {
 
 export function userSelect(user) {
   return (dispatch, getState) => {
+    dispatch({
+      type: USER_SELECT,
+      user,
+    })
   }
 }

@@ -14,7 +14,7 @@ const Menu = props => {
 
   return (
     <View>
-      <Image source={require("../images/truckmap_icon.png")} style={styles.logo}></Image>
+      <Image source={require("../images/truckmap_icon.png")} style={styles.logo} />
     </View>
   )
 };

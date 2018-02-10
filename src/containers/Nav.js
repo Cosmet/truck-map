@@ -11,15 +11,15 @@ import {
   FlatList,
 } from 'react-native';
 
-import Menu from './menu';
-import ListItem from './listItem';
+import Menu from './Menu';
+import ListItem from '../components/listItem';
 
 import people from '../data/people.json';
 
 
 const Nav = (props) => {
   const { search, people } = props;
-  console.log('nav', props.actions.filterPeople)
+
   return (
     <View style={styles.container}>
       <View style={styles.innerContainer}>
@@ -33,7 +33,7 @@ const Nav = (props) => {
 
       <FlatList
         data={people}
-        renderItem={({ item }) => <ListItem data={item} />}
+        renderItem={({ item }) => <ListItem key={item.username} data={item} />}
       />
     </View>
   )
@@ -67,7 +67,8 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     alignSelf: 'stretch',
     backgroundColor: '#f0f0f0',
+    textAlign: 'center',
   },
 });
 
-export default connectProps()(Nav);
+export default connectProps('people', 'search')(Nav);
