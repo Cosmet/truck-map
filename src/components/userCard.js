@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
     maxHeight: 150,
   },
   allInterestsContainer: {
-    marginTop: 14,
+    marginTop: 25,
   },
   interestContainer: {
     marginTop: -7,
