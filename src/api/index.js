@@ -9,7 +9,7 @@ const Api = {
         resolve(people);
       }
       else {
-        reject(new Error('Failed to fetch people from database.'))
+        reject(new Error('Failed to fetch people from database.'));
       }
     });
   },
@@ -20,7 +20,7 @@ const Api = {
         resolve(fetchedInterests);
       }
       else {
-        reject(new Error('Failed to fetch interests from database.'))
+        reject(new Error('Failed to fetch interests from database.'));
       }
     });
   },
