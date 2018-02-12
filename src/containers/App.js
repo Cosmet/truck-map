@@ -22,6 +22,7 @@ class App extends PureComponent {
   render() {
     const { user } = this.props;
     const userSelected = user.username.length > 0;
+    const { clearUserSelect } = this.props.actions;
 
     return (
       <View style={styles.container}>
@@ -29,7 +30,7 @@ class App extends PureComponent {
         <Nav />
         {
           userSelected &&
-            <UserCard user={user} />
+            <UserCard user={user} actions={{ clearUserSelect }} />
         }
       </View>
     );

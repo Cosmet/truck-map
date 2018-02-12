@@ -14,18 +14,16 @@ import {
 import Menu from './Menu';
 import ListItem from '../components/listItem';
 
-import people from '../data/people.json';
-
-
 const Nav = (props) => {
   const { search, people } = props;
+  const { addMarker, filterPeople } = props.actions;
 
   return (
     <View style={styles.container}>
       <View style={styles.innerContainer}>
         <Menu />
         <TextInput
-          onChangeText={props.actions.filterPeople}
+          onChangeText={filterPeople}
           style={styles.search}
           placeholder="Search"
         />
@@ -33,7 +31,13 @@ const Nav = (props) => {
 
       <FlatList
         data={people}
-        renderItem={({ item }) => <ListItem key={item.username} data={item} />}
+        renderItem={({ item }) => (
+          <ListItem
+            key={item.username}
+            data={item}
+            actions={{ addMarker }}
+          />
+        )}
       />
     </View>
   )

@@ -18,6 +18,7 @@ const ListItem = props => {
     name: { first, last },
     picture: { thumbnail },
   } = props.data;
+  const { addMarker } = props.actions;
 
   first = first[0].toUpperCase() + first.slice(1);
   last = last[0].toUpperCase() + last.slice(1);
@@ -26,7 +27,7 @@ const ListItem = props => {
     <TouchableHighlight
       underlayColor='#f0f0f0'
       style={styles.highlight}
-      onPress={() => props.actions.addMarker(props.data)}
+      onPress={() => addMarker(props.data)}
     >
       <View style={styles.container}>
         <Image source={{ uri: thumbnail }} style={styles.thumbnail} />
@@ -67,4 +68,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default connectProps()(ListItem);
+export default ListItem;
